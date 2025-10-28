@@ -60,7 +60,19 @@ Pour imposer que le noeud 1 doit être visité au temps $t=1$, il est possible d
 Effectivement, puisque $x_{1,1}\in \{0,1\}$ et il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est minimale lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible est temps t=1.
 
 \section*{6.}
+Il est possible de représenter les éléments $x_{i,j}$ avec les matrices $Z_{i,t}$ de la manière suivante:
+\begin{equation*}
+    x_{i,j}\sim \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg).
+\end{equation*}
+En effet, que le vecteur propre $\ket{1}$ a pour valeur propre 1 et le vecteur propre $\ket{0}$ a pour valeur propre 0.
 
+\textbf{PLUS DE DÉTAILS????}
+
+Ainsi, en combinant les contraintes plus haut, on obtient:
+\begin{align*}
+    H&=\sum_{i,j=1}^N\sum_{t=1}^{N-1} d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\\
+    &\:\:\:\:\:+1-\gamma\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)
+\end{align*}
 
 \section*{7.}
 \subsection*{a.}
