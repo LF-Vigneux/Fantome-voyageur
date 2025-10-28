@@ -14,12 +14,12 @@
 \textbf{ICI mes positions débutent à 1}
 
 \section*{1.}
-Sachant que nous deons utiliser un qubit par noeud du graphe et par position dans le chemin, pour un graphe ayant N noeuds, nous avons besoin de $N^2$ qubits. En effet, comme on doit passer par tout les sommets du graphe dans le problème du commis voyageur, on obtient donc que le nombre de positions possibles dans le chemin est donc de N. Ainsi, chacun des N sommets peut être à N positions dans le chemin parcouru. Puisque nous prenons un qubit décrit par ces deux paramètre: $q_{i,t}$, on obtient bel te bien $N^2$ qubits nécessaires.
+Sachant que nous devons utiliser un qubit par noeud du graphe et par position dans le chemin, pour un graphe ayant N noeuds, nous avons besoin de $N^2$ qubits. En effet, comme on doit passer par tout les sommets du graphe dans le problème du commis voyageur, le nombre de positions possibles dans le chemin est de N. Ainsi, chacun des N sommets peut être à N positions dans le chemin parcouru. Puisque nous prenons un qubit décrit par ces deux paramètre: $q_{i,t}$, on obtient $N^2$ qubits nécessaires.
 
 \section*{2.}
-Pour le PVC, nous devons trouver le chemin minimisant le poids total des arrêtes visitées. Ainsi, puisqu'il le poids de ces arrêtes et le nombre de sommets du graphe ne peut être optimisé (entrée du problème), la fonction de coût doit uniquement se baser sur le chemin emprunté et doit être minimale pour le chemin de poids minimal.
+Pour le PVC, nous devons trouver le chemin minimisant le poids total des arrêtes visitées. Puisque le poids de ces arrêtes et le nombre de sommets du graphe ne peuvent être optimisés (entrées du problème), la fonction de coût doit uniquement se baser sur le chemin emprunté et doit être minimale pour le chemin de poids minimal.
 
-Ainsi, posons en entrée de la fonction de coût la matrice $N\times N$ $X$ où les éléments de la matrice comme valeur $x_{i,t}=\begin{cases}
+Ainsi, posons en entrée de la fonction de coût la matrice $N\times N$ $X$ où les éléments de la matrice ont comme valeur $x_{i,t}=\begin{cases}
       1 &\text{si le sommet i est visité au temps t} \\
       0 &\text{sinon}
     \end{cases}$.
@@ -28,14 +28,16 @@ Ainsi, la fonction de coût proposé est la suivante:
 \begin{equation*}
     f(X)=\sum_{i,j=1}^N\sum_{t=1}^{N-1} d_{i,j}x_{i,t}x_{j,t+1}
 \end{equation*}
-où $d_{i,j}$ est la distance entre les noeuds i et j dans le graphe. 
+où $d_{i,j}$ est la distance (ou le poid) entre les noeuds i et j dans le graphe. 
 
-En effet, cette fonction fait tout simplement sommer sur le poids de tout les arrêtes visitées. Effectivement, nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après et vaut 0 dans tout les autres cas. Donc, on obtient que la fonction sera donc minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arrêtes sont de poids positifs par définition du problème.
+En effet, cette fonction fait tout simplement sommer sur le poids de toutes les arrêtes visitées. Nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après et vaut 0 dans tout les autres cas. Donc, on obtient que la fonction sera minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arrêtes sont toutes de poids positifs par définition du problème.
 
 \textbf{PLUS D'EXPLICATION??? OK ENTRÉE DE F}
 
 \section*{3.}
-Pour s'assurer que chaque noeud est visité exactement une fois, nous avons que chaque ligne de la matrice en entre doit sommer exactement à 1 et sinon, il faut introduire une pénalité. Ainsi, proposons le terme suivant à ajouter à $f$.
+\textbf{EN RELATION AVEC L'INDICE POUR LE 6: JE CROIS QUE POUR LES QUESTIONS 3, 4 ET 5 ON DOIT METTRE LES CONTRAINTES SANS QU'ELLES SOIENT UN TERME DE PÉNALITÉ DIRECTEMENT. DONC UN TERME = 0. ENSUITE, ON FAIT LES TERMES DE PÉNALITÉ EN 6 AVEC UNE CONSTANTE FOIS $C^2$}
+\\\\
+Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Sinon, il faut introduire une pénalité. Ainsi, proposons le terme suivant à ajouter à $f$.
 \begin{equation*}
     \sum_{i=1}^N\bigg(1-\sum_{t=1}^N x_{i,t}\bigg)^2
 \end{equation*}
@@ -44,11 +46,11 @@ En effet, nous sommons sur chaque ligne et nous avons que $\bigg(1-\sum_{t=1}^N 
 \textbf{PLUS D'EXPLICATION??? + clair, mettre préfacteur en avant et expliquer?? pour vraiment que ça soit impossible???}
 
 \section*{4.}
-Pour s'assurer qu'exactement un noeud est visité à chaque temps, il fait introduire la contrainte suivante:
+Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire la contrainte (pénalité) suivante:
 \begin{equation*}
     \sum_{t=1}^N\bigg(1-\sum_{i=1}^N x_{i,t}\bigg)^2
 \end{equation*}
-En effet, nous sommons sur temps et nous avons que $\bigg(1-\sum_{t=1}^N x_{i,i}\bigg)^2$ est minimal si la somme des $x_{i,t}$ sur tout les sommets est d'exactement 1. Si la somme est de 0 (on ne visite aucun sommet au temps t puisque $x_{i,t}\in\{0,1\}$) ou supérieure à 1, nous avons que le terme plus haut ne sera pas nul et introduira donc une pénalité (terme positif). Ainsi, nous répétons ce processus sur chaque colonnes (temps) comme mentionné plus haut.
+En effet, on somme sur les temps et nous avons que $\bigg(1-\sum_{t=1}^N x_{i,i}\bigg)^2$ est minimal si la somme des $x_{i,t}$ sur tout les sommets est d'exactement 1. Si la somme est de 0 (on ne visite aucun sommet au temps t puisque $x_{i,t}\in\{0,1\}$) ou supérieure à 1, nous avons que le terme plus haut ne sera pas nul et introduira donc une pénalité (terme positif). Ainsi, nous répétons ce processus sur chaque colonnes (temps) comme mentionné plus haut.
 
 \textbf{PLUS D'EXPLICATION??? + clair, mettre préfacteur en avant et expliquer?? pour vraiment que ça soit impossible???}
 
@@ -57,14 +59,14 @@ Pour imposer que le noeud 1 doit être visité au temps $t=1$, il est possible d
 \begin{equation*}
     1-x_{1,1}
 \end{equation*}
-Effectivement, puisque $x_{1,1}\in \{0,1\}$ et il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est minimale lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible est temps t=1.
+Effectivement, puisque $x_{1,1}\in \{0,1\}$ et qu'il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est minimale lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible au temps t=1.
 
 \section*{6.}
 Il est possible de représenter les éléments $x_{i,j}$ avec les matrices $Z_{i,t}$ de la manière suivante:
 \begin{equation*}
     x_{i,j}\sim \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg).
 \end{equation*}
-En effet, que le vecteur propre $\ket{1}$ a pour valeur propre 1 et le vecteur propre $\ket{0}$ a pour valeur propre 0.
+En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le vecteur propre $\ket{0}$ a pour valeur propre 0.
 
 \textbf{PLUS DE DÉTAILS????}
 
