@@ -37,41 +37,43 @@ En effet, cette fonction fait tout simplement sommer sur le poids de toutes les 
 \textbf{PLUS D'EXPLICATION??? OK ENTRÉE DE F}
 
 \section*{3.}
-\textbf{EN RELATION AVEC L'INDICE POUR LE 6: JE CROIS QUE POUR LES QUESTIONS 3, 4 ET 5 ON DOIT METTRE LES CONTRAINTES SANS QU'ELLES SOIENT UN TERME DE PÉNALITÉ DIRECTEMENT. DONC UN TERME = 0. ENSUITE, ON FAIT LES TERMES DE PÉNALITÉ EN 6 AVEC UNE CONSTANTE FOIS $C^2$}, Écrire sans le carré et =0.
-\\\\
-Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Sinon, il faut introduire une pénalité. Ainsi, proposons le terme suivant à ajouter à $f$.
+Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Ainsi, on a la contrainte suivante pour chaque i $\in$ [1, N]:
 \begin{equation*}
-    \sum_{i=1}^N\bigg(1-\sum_{t=1}^N x_{i,t}\bigg)^2
+    1-\sum_{t=1}^N x_{i,t} = 0
 \end{equation*}
-En effet, nous sommons sur chaque ligne et nous avons que $\bigg(1-\sum_{t=1}^N x_{i,t}\bigg)^2$ est minimal si la somme des $x_{i,t}$ sur tout les temps $t$ est d'exactement 1. Si la somme est de 0 (on ne viste jamais le sommet puisque $x_{i,t}\in\{0,1\}$) ou supérieure à 1, nous avons que le terme plus haut ne sera pas nul et introduira donc une pénalité (terme positif). Ainsi, nous répétons ce processus sur chaque ligne (sommet du graphe) comme mentionné plus haut.
-
-\textbf{PLUS D'EXPLICATION??? + clair, mettre préfacteur en avant et expliquer?? pour vraiment que ça soit impossible???}
+Puisqu'on veut que cette contrainte soit bonne pour chaque i, on peut faire une somme pour rendre cette contrainte générale:
+\begin{equation*}
+    \sum_{i = 1}^N\bigg(1-\sum_{t=1}^N x_{i,t}\bigg) = 0
+\end{equation*}
+Ainsi, puisque toutes les variables $x_{i, t}$ sont prises comme soit 0 ou 1, on a que cette contrainte est respectée si pour tout i, $\sum_{t = 1}^Nx_{i, t} = 1$. C'est donc dire que chaque noeuds possèdent un unique temps, et donc qu'ils sont visités une unique fois. 
 
 \section*{4.}
-Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire la contrainte (pénalité) suivante:
+Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire la contrainte suivante:
 \begin{equation*}
-    \sum_{t=1}^N\bigg(1-\sum_{i=1}^N x_{i,t}\bigg)^2
+    \sum_{t=1}^N\bigg(1-\sum_{i=1}^N x_{i,t}\bigg) = 0
 \end{equation*}
-En effet, on somme sur les temps et nous avons que $\bigg(1-\sum_{t=1}^N x_{i,i}\bigg)^2$ est minimal si la somme des $x_{i,t}$ sur tout les sommets est d'exactement 1. Si la somme est de 0 (on ne visite aucun sommet au temps t puisque $x_{i,t}\in\{0,1\}$) ou supérieure à 1, nous avons que le terme plus haut ne sera pas nul et introduira donc une pénalité (terme positif). Ainsi, nous répétons ce processus sur chaque colonnes (temps) comme mentionné plus haut.
+En fait, c'est le même raisonnement que pour la question précédente. Pour chaque valeur de temps, on doit s'assurer qu'il existe un seul noeud. C'est exactement ce que vérifie cette contrainte par la même logique que précédément. 
 
-\textbf{PLUS D'EXPLICATION??? + clair, mettre préfacteur en avant et expliquer?? pour vraiment que ça soit impossible???}
+
 
 \section*{5.}
 Pour imposer que le noeud 1 doit être visité au temps $t=1$, il est possible d'ajouter la contrainte suivante.
 \begin{equation*}
-    1-x_{1,1}
+    1-x_{1,1} = 0
 \end{equation*}
-Effectivement, puisque $x_{1,1}\in \{0,1\}$ et qu'il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est minimale lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible au temps t=1.
+Effectivement, puisque $x_{1,1}\in \{0,1\}$ et qu'il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est respecté lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible au temps t=1.
 
 \section*{6.}
 Il est possible de représenter les éléments $x_{i,j}$ avec les matrices $Z_{i,t}$ de la manière suivante:
 \begin{equation*}
     x_{i,j}\sim \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg).
 \end{equation*}
-En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le vecteur propre $\ket{0}$ a pour valeur propre 0.
-
-\textbf{PLUS DE DÉTAILS????}
-
+En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le vecteur propre $\ket{0}$ a pour valeur propre 0 pour cet opérateur. 
+\\\\
+Pour ce qui est des contraintes, on peut simplement les ajouter à la fonction de coût sous forme de pénalités $\alpha C^2$ où $\alpha$ est une constante et C est la contrainte qui doit être nulle. 
+\\
+De cette façon, les contraintes doivent être nulles afin d'introduire la plus petite pénalité possible sur la fonction de coût.
+\\\\
 Ainsi, en combinant les contraintes plus haut, on obtient:
 \begin{align*}
     H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\\
@@ -98,8 +100,6 @@ Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée
       & \targ{}  &\gate{RZ(\theta)} & \targ{}&\qw
 \end{quantikz}
 \end{center}
-
-\textbf{OK D'UTIISER ÇA???}
 
 Pour un unitaire $U$ et opérateur $O$ quelconques, on obtient que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et son propre inverse et le fait que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
 
