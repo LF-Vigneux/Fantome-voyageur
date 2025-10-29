@@ -76,8 +76,8 @@ De cette façon, les contraintes doivent être nulles afin d'introduire la plus 
 \\\\
 Ainsi, en combinant les contraintes plus haut, on obtient:
 \begin{align*}
-    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\\
-    &\:\:\:\:\:+1-\gamma\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\\
+    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
+    &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
     \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
     &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\\
     &\:\:\:\:\:+(1-\frac{\gamma}{2})+\frac{\gamma}{2}Z_{1,1}
