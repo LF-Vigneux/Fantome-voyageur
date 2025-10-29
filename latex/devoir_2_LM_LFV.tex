@@ -3,7 +3,7 @@
 \usepackage{francais}
 \usepackage{mymacros}
 
-
+\usepackage{quantikz}
 
 
 \begin{document}
@@ -26,16 +26,16 @@ Ainsi, posons en entrée de la fonction de coût la matrice $N\times N$ $X$ où 
 
 Ainsi, la fonction de coût proposé est la suivante:
 \begin{equation*}
-    f(X)=\sum_{i,j=1}^N\sum_{t=1}^{N-1} d_{i,j}x_{i,t}x_{j,t+1}
+    f(X)=\sum_{i,j,t=1}^N d_{i,j}x_{i,t}x_{j,t+1}
 \end{equation*}
-où $d_{i,j}$ est la distance (ou le poid) entre les noeuds i et j dans le graphe. 
+où $d_{i,j}$ est la distance (ou le poid) entre les noeuds i et j dans le graphe et le temps t=N+1 est équivalent au temps t=1 (ce qui revient à rajouter un modulo N dans l'expression du t+1). 
 
 En effet, cette fonction fait tout simplement sommer sur le poids de toutes les arrêtes visitées. Nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après et vaut 0 dans tout les autres cas. Donc, on obtient que la fonction sera minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arrêtes sont toutes de poids positifs par définition du problème.
 
 \textbf{PLUS D'EXPLICATION??? OK ENTRÉE DE F}
 
 \section*{3.}
-\textbf{EN RELATION AVEC L'INDICE POUR LE 6: JE CROIS QUE POUR LES QUESTIONS 3, 4 ET 5 ON DOIT METTRE LES CONTRAINTES SANS QU'ELLES SOIENT UN TERME DE PÉNALITÉ DIRECTEMENT. DONC UN TERME = 0. ENSUITE, ON FAIT LES TERMES DE PÉNALITÉ EN 6 AVEC UNE CONSTANTE FOIS $C^2$}
+\textbf{EN RELATION AVEC L'INDICE POUR LE 6: JE CROIS QUE POUR LES QUESTIONS 3, 4 ET 5 ON DOIT METTRE LES CONTRAINTES SANS QU'ELLES SOIENT UN TERME DE PÉNALITÉ DIRECTEMENT. DONC UN TERME = 0. ENSUITE, ON FAIT LES TERMES DE PÉNALITÉ EN 6 AVEC UNE CONSTANTE FOIS $C^2$}, Écrire sans le carré et =0.
 \\\\
 Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Sinon, il faut introduire une pénalité. Ainsi, proposons le terme suivant à ajouter à $f$.
 \begin{equation*}
@@ -72,14 +72,88 @@ En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le 
 
 Ainsi, en combinant les contraintes plus haut, on obtient:
 \begin{align*}
-    H&=\sum_{i,j=1}^N\sum_{t=1}^{N-1} d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\\
-    &\:\:\:\:\:+1-\gamma\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)
+    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\\
+    &\:\:\:\:\:+1-\gamma\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\\
+    \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
+    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\\
+    &\:\:\:\:\:+(1-\frac{\gamma}{2})+\frac{\gamma}{2}Z_{1,1}
 \end{align*}
 
 \section*{7.}
 \subsection*{a.}
+Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grand. Ainsi, les pas d'évloution de Trotter seront plus grand et comme que l'erreur fait par la troterrisation est inversement proportionnel à la longueur des pas pris dans l'évolution, on obtient une plus grande erreur de Trotter. Ainsi, malgré qu'augmenter le temps T aide au processus adiabatique à converger vers le bon état fondamental mais augmente les erreurs de Trotter faite dans le calcul. Ainsi, on obtient pas nécessairement une meilleure précision.
+
+\textbf{OK COMME EXPLICATION??? PLUS DE CALCUL/ ÉQUATIONS??? }
 \subsection*{b.}
+Augmenter M en gardant t fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus petits. Ainsi, les pas d'évloution de Trotter seront plus petits et comme que l'erreur fait par la troterrisation est inversement proportionnel à la longueur des pas pris dans l'évolution, on obtient une plus petite erreur de Trotter. Par contre, le temps d'évolution total est inchangé faisant en sorte que le le processus adiabatique n'est pas plus précis. En effet, on évolue le système adiabatique à la même vitesse. Ainsi, puisque la précision d'un processus adiabatique est proportionnel au temps donné à l'algorithme, garder le temps fixe garde la même précision. Ainsi, si l'erreur de Trotter était déjà minime comparé à celle faite par le processus adiabatique, on obtient qu'augmenter M en gardant T fixe n'augmentera pas nécessairement la précision.
+
+\textbf{OK COMME EXPLICATION??? PLUS DE CALCUL/ ÉQUATIONS??? ET PAS SUR QUE C'EST JUSTE ÇA. RAJOUTER LE MOT NÉGLIGEABLE}
 \section*{8.}
+Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée par le circuit suivant:
+\begin{center}
+\begin{quantikz}
+      & \ctrl{1} & \qw & \ctrl{1}&\qw \\
+      & \targ{}  &\gate{RZ(\theta)} & \targ{}&\qw
+\end{quantikz}
+\end{center}
+
+\textbf{OK D'UTIISER ÇA???}
+
+Pour un unitaire $U$ et opérateur $O$ quelconques, on obtient que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et son propre inverse et le fait que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
+
+\begin{align*}
+    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)&=\bigg(C_1X_2\bigg)e^{-i\frac{\theta}{2}\idd Z}\bigg(C_1X_2\bigg)\\
+    &=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}\\
+\end{align*}
+
+Simplifions $CX[\idd Z]CX$:
+\begin{align*}
+    CX[\idd Z]CX&=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\idd Z\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\\
+    &=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\bigg(\sameproj{0}\otimes Z +\sameproj{1}\otimes ZX\bigg)\\
+    &=(\sameproj{0}\sameproj{0})\otimes Z+(\sameproj{0}\sameproj{1})\otimes ZX
+    +(\sameproj{1}\sameproj{0})\otimes XZ
+    +(\sameproj{1}\sameproj{1})\otimes XZX\\
+    &=\sameproj{0}\otimes Z+\sameproj{1}\otimes XZX\\
+    \intertext{Sachant que $ZX=-XZ$ (toute paire de Pauli non identiques repectent cette identité),}
+    &=\sameproj{0}\otimes Z-\sameproj{1}\otimes ZXX\\
+    \intertext{Puisque $XX=\idd$,}
+    &=(\sameproj{0}-\sameproj{1})\otimes Z\\
+    \intertext{Sachant que $Z=\sameproj{0}-\sameproj{1}$,}
+    &=ZZ
+\end{align*}
+
+Ainsi, en revenant au premier développement, on obtient que
+\begin{equation*}
+    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}=e^{-i\frac{\theta}{2}Z_1Z_2}
+\end{equation*}
+
+Le circuit plus haut implémente donc bel et bien la porte désirée.
+
+
 \section*{9.}
+\textbf{C'EST BIEN CE QU'IL VEUT?? PAS LE NOMBRE DE CHEMINS MINIMAUX?? ET EXPLICATION EN RAISONNEMENT MATH? JE CROIS QUE C'EST LA BONNE MANIÈRE}
+
+Voici les contraintes à respecter:
+\begin{enumerate}
+    \item Tout les sommets sont visités exactement une fois.
+    \item Exactement un sommet est visité par temps.
+    \item On commence au temps 1 dans le premier noeud.
+\end{enumerate}
+
+Selon la matrice D, on remarque qu'il y a N=4 sommets à visiter (c'est une matrice 4 par 4). Ainsi, on peut déduire qu'il y a $3!=6$ chemins possibles respectant les contraintes.
+
+Effectivement, on puisqu'on choisi chaque sommet exactement une fois et 1 sommet par temps, il est possible de voir le nombre de possibilités comme le nombre de manières d'ordoner N éléments (où l'ordre signifie l'ordre de visite). Par contre, puisque le premier sommet doit absoluement être le premier qui est visité, nous avons que le nombre de chemins possibles est réduit. En effet, un chemin sera décrit par le premier sommet et ensuite le un arrangement des N-1 autres sommets. Ainsi, puisqu'on visite tout les sommets exactement une fois, nous savons que nous choisissons le prmeier sommet comme point de départ et ensuite le nombre de combinaisons possibles sera le nombre de manières d'ordnner les N-1 dernier sommets. Ainsi, le nombre de solutions (chemins) possibles selon les 3 contraintes est de $(N-1)!$.
+
+Donc, puisque N=4 ici, on obtient qu'il y a bel et bien $3!=6$ solutions possibles.
+
 \section*{10.}
+Selon le code du jupyter notebook intitulé \textit{devoir2.ipynb}, voici le chemin optimal obtenu selon l'histogramme.
+\textbf{Avons nous le droit d'utiliser un bloc troterrisation de qiskit ou l'implémenter à la main?, Hamil dur à faire à la main... Hamil plus simple?
+}
+
+\section{Backup}
+\begin{align*}
+    \bigg(C_1X_2\bigg)RZ(\theta)\bigg(C_1X_2\bigg)&=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\idd\otimes e^{-i\frac{\theta}{2}Z}\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\\
+    &=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\bigg(\cos(\frac{\theta}{2})\idd\otimes \idd-i\sin(\frac{\theta}{2})\idd\otimes Z\bigg)\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\\
+\end{align*}
 \end{document}

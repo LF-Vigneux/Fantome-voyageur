@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.22)  28 OCT 2025 17:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.26)  28 OCT 2025 23:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.tex
-(/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.tex
+**/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex
+(/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -22,7 +22,7 @@ File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/includepacks.sty
+) (./includepacks.sty
 Package: includepacks 2025/07/09
  (/usr/local/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
@@ -548,7 +548,7 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip78
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/francais.sty
+) (./francais.sty
 Package: francais 2025/07/09
  (/usr/local/texlive/2023/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2023/02/13 3.86 The Babel package
@@ -608,14 +608,299 @@ File: csquotes.cfg
 Package: frpseudocode 2020-08-10 French Pseudocode 0.3.0
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/mymacros.sty
+) (./mymacros.sty
 Package: mymacros 2025/07/09
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/quantikz/quantikz.sty
+Package: quantikz 2020/04/27 typeset quantum circuit diagrams
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen174
+\pgfutil@tempdimb=\dimen175
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box56
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\pgf@xd=\dimen184
+\pgf@yd=\dimen185
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count441
+\c@pgf@countb=\count442
+\c@pgf@countc=\count443
+\c@pgf@countd=\count444
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
+\pgf@sys@id@count=\count445
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
+Driver file for pgf: pgfsys-pdftex.def
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count446
+\pgfsyssoftpath@bigbuffer@items=\count447
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen186
+\pgfmath@count=\count448
+\pgfmath@box=\box57
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count449
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen187
+\pgf@picmaxx=\dimen188
+\pgf@picminy=\dimen189
+\pgf@picmaxy=\dimen190
+\pgf@pathminx=\dimen191
+\pgf@pathmaxx=\dimen192
+\pgf@pathminy=\dimen193
+\pgf@pathmaxy=\dimen194
+\pgf@xx=\dimen195
+\pgf@xy=\dimen196
+\pgf@yx=\dimen197
+\pgf@yy=\dimen198
+\pgf@zx=\dimen199
+\pgf@zy=\dimen256
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen257
+\pgf@path@lasty=\dimen258
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen259
+\pgf@shorten@start@additional=\dimen260
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box58
+\pgf@hbox=\box59
+\pgf@layerbox@main=\box60
+\pgf@picture@serial@count=\count450
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen261
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen262
+\pgf@pt@y=\dimen263
+\pgf@pt@temp=\dimen264
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen265
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen266
+\pgf@sys@shading@range@num=\count451
+\pgf@shadingcount=\count452
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box61
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box62
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen267
+\pgf@nodesepend=\dimen268
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen269
+\pgffor@skip=\dimen270
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count453
+\pgfplotmarksize=\dimen271
+)
+\tikz@lastx=\dimen272
+\tikz@lasty=\dimen273
+\tikz@lastxsaved=\dimen274
+\tikz@lastysaved=\dimen275
+\tikz@lastmovetox=\dimen276
+\tikz@lastmovetoy=\dimen277
+\tikzleveldistance=\dimen278
+\tikzsiblingdistance=\dimen279
+\tikz@figbox=\box63
+\tikz@figbox@bg=\box64
+\tikz@tempbox=\box65
+\tikz@tempbox@bg=\box66
+\tikztreelevel=\count454
+\tikznumberofchildren=\count455
+\tikznumberofcurrentchild=\count456
+\tikz@fig@count=\count457
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count458
+\pgfmatrixcurrentcolumn=\count459
+\pgf@matrix@numberofcolumns=\count460
+)
+\tikz@expandcount=\count461
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2023/texmf-dist/tex/latex/quantikz/tikzlibraryquantikz.code.tex (/usr/local/texlive/2023/texmf-dist/tex/latex/xargs/xargs.sty
+Package: xargs 2008/03/22 v1.1  extended macro definitions  (mpg)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks40
+\XKV@tempa@toks=\toks41
+)
+\XKV@depth=\count462
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\xargs@max=\count463
+\xargs@toksa=\toks42
+\xargs@toksb=\toks43
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count464
+\decimalpart=\count465
+)
+Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count466
+\calc@Bcount=\count467
+\calc@Adimen=\dimen280
+\calc@Bdimen=\dimen281
+\calc@Askip=\skip79
+\calc@Bskip=\skip80
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count468
+\calc@Cskip=\skip81
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count469
+\l_MT_multwidth_dim=\dimen282
+\origjot=\skip82
+\l_MT_shortvdotswithinadjustabove_dim=\dimen283
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen284
+\l_MT_above_intertext_sep=\dimen285
+\l_MT_below_intertext_sep=\dimen286
+\l_MT_above_shortintertext_sep=\dimen287
+\l_MT_below_shortintertext_sep=\dimen288
+\xmathstrut@box=\box67
+\xmathstrut@dim=\dimen289
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen290
+\pgfarrowlength=\dimen291
+\pgfarrowwidth=\dimen292
+\pgfarrowlinewidth=\dimen293
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen294
+\pgfdecoratedremainingdistance=\dimen295
+\pgfdecoratedinputsegmentcompleteddistance=\dimen296
+\pgfdecoratedinputsegmentremainingdistance=\dimen297
+\pgf@decorate@distancetomove=\dimen298
+\pgf@decorate@repeatstate=\count470
+\pgfdecorationsegmentamplitude=\dimen299
+\pgfdecorationsegmentlength=\dimen300
+)
+\tikz@lib@dec@box=\box68
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box69
+\pgf@layerboxsaved@background=\box70
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex))
+\tikz@math@for@depth=\count471
+\tikz@math@dimen=\dimen301
+\tikz@math@toks=\toks44
+)
+\myl=\skip83
+\myh=\skip84
+\myd=\skip85
+\c@aaa=\count472
+LaTeX Font Info:    Trying to load font information for U+msa on input line 142.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 142.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
- (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.aux)
+ (./devoir_2_LM_LFV.aux)
 \openout1 = `devoir_2_LM_LFV.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -638,17 +923,17 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count441
-\scratchdimen=\dimen174
-\scratchbox=\box56
-\nofMPsegments=\count442
-\nofMParguments=\count443
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count444
-\MPscratchDim=\dimen175
-\MPnumerator=\count445
-\makeMPintoPDFobject=\count446
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count473
+\scratchdimen=\dimen302
+\scratchbox=\box71
+\nofMPsegments=\count474
+\nofMParguments=\count475
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count476
+\MPscratchDim=\dimen303
+\MPnumerator=\count477
+\makeMPintoPDFobject=\count478
+\everyMPtoPDFconversion=\toks46
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -690,9 +975,9 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 9.
-(/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.out) (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.out)
-\@outlinefile=\write4
-\openout4 = `devoir_2_LM_LFV.out'.
+(./devoir_2_LM_LFV.out) (./devoir_2_LM_LFV.out)
+\@outlinefile=\write5
+\openout5 = `devoir_2_LM_LFV.out'.
 
 Package biblatex Info: Trying to load language 'french'...
 Package biblatex Info: ... file 'french.lbx' found.
@@ -706,22 +991,14 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'devoir_2_LM_LFV.bbl' found.
- (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.bbl)
+ (./devoir_2_LM_LFV.bbl)
 Package biblatex Info: Reference section=0 on input line 9.
 Package biblatex Info: Reference segment=0 on input line 9.
 LaTeX Info: Redefining \degres on input line 9.
 LaTeX Info: Redefining \up on input line 9.
- (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/title.tex [1
+ (./title.tex [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
@@ -734,30 +1011,35 @@ l.52 \end{equation*}
                      [1]
 LaTeX Font Info:    Trying to load font information for U+bbold on input line 67.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/bbold/Ubbold.fd)
-Overfull \hbox (55.5865pt too wide) detected at line 77
+Overfull \hbox (59.77058pt too wide) detected at line 80
 []
  []
 
-[2] (/Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.aux)
+[2] [3]
+Overfull \hbox (54.84935pt too wide) detected at line 158
+[]
+ []
+
+[4] (./devoir_2_LM_LFV.aux)
 Package rerunfilecheck Info: File `devoir_2_LM_LFV.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: AC8B205E188B3A9035F2602F028548BE;73.
 Package logreq Info: Writing requests to 'devoir_2_LM_LFV.run.xml'.
 \openout1 = `devoir_2_LM_LFV.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21705 strings out of 476025
- 372367 string characters out of 5790017
- 1864388 words of memory out of 5000000
- 41870 multiletter control sequences out of 15000+600000
+ 36328 strings out of 476025
+ 705769 string characters out of 5790017
+ 1880388 words of memory out of 5000000
+ 56166 multiletter control sequences out of 15000+600000
  521389 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,91p,1188b,1726s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on /Users/ludo/Library/CloudStorage/OneDrive-Personnel/Documents/Ludovic/École/Université/Automne_25/PHQ598/Fantome-voyageur/latex/devoir_2_LM_LFV.pdf (3 pages, 159646 bytes).
+ 98i,16n,96p,1234b,1726s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on devoir_2_LM_LFV.pdf (5 pages, 210160 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
