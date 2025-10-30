@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber devoir_2_LM_LFV"] 1761845733 "devoir_2_LM_LFV.bcf" "devoir_2_LM_LFV.bbl" "devoir_2_LM_LFV" 1761845739 0
-  "devoir_2_LM_LFV.bcf" 1761845739 106702 ac77d760a8ca41147b3dca0887b7f8b2 "pdflatex"
+["biber devoir_2_LM_LFV"] 1761845733 "devoir_2_LM_LFV.bcf" "devoir_2_LM_LFV.bbl" "devoir_2_LM_LFV" 1761856779 0
+  "devoir_2_LM_LFV.bcf" 1761856779 106702 ac77d760a8ca41147b3dca0887b7f8b2 "pdflatex"
   (generated)
   "devoir_2_LM_LFV.bbl"
   "devoir_2_LM_LFV.blg"
   (rewritten before read)
-["pdflatex"] 1761845738 "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" "devoir_2_LM_LFV.pdf" "devoir_2_LM_LFV" 1761845739 0
-  "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" 1761845737 11387 f55ac9f84a6458819b7f94f2e2531bfb ""
+["pdflatex"] 1761856778 "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" "devoir_2_LM_LFV.pdf" "devoir_2_LM_LFV" 1761856779 0
+  "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" 1761856778 11387 92a92a122716dca950372217985aec1c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -243,11 +243,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1695785422 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695785406 7883457 a29ce1728f06dfa68b9411a44c31a0e6 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "devoir_2_LM_LFV.aux" 1761845739 926 2bae927fee339f4ad640a76ef686f14c "pdflatex"
+  "devoir_2_LM_LFV.aux" 1761856779 926 2bae927fee339f4ad640a76ef686f14c "pdflatex"
   "devoir_2_LM_LFV.bbl" 1761845738 0 d41d8cd98f00b204e9800998ecf8427e "biber devoir_2_LM_LFV"
-  "devoir_2_LM_LFV.out" 1761845739 73 ac8b205e188b3a9035f2602f028548be "pdflatex"
-  "devoir_2_LM_LFV.run.xml" 1761845739 2397 fc775e1b82917fb951270de6ab16d1ce "pdflatex"
-  "devoir_2_LM_LFV.tex" 1761845737 11387 f55ac9f84a6458819b7f94f2e2531bfb ""
+  "devoir_2_LM_LFV.out" 1761856779 73 ac8b205e188b3a9035f2602f028548be "pdflatex"
+  "devoir_2_LM_LFV.run.xml" 1761856779 2397 fc775e1b82917fb951270de6ab16d1ce "pdflatex"
+  "devoir_2_LM_LFV.tex" 1761856778 11387 92a92a122716dca950372217985aec1c ""
   "francais.sty" 1757353831 182 81e57db1ca7a007fef86856a57b5d249 ""
   "includepacks.sty" 1758819391 762 2b63c55e00d328021b6327cdc2a45ecb ""
   "mymacros.sty" 1758819391 882 9aaffcd50bb9a64378180433bebc2b81 ""
