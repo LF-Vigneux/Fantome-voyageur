@@ -79,13 +79,15 @@ Ainsi, en combinant les contraintes plus haut, on obtient:
     H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
     &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
     \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
-    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\frac{N}{2}+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\\
-    &\:\:\:\:\:+(1-\frac{\gamma}{2})+\frac{\gamma}{2}Z_{1,1}
+    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
+    &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
 \end{align*}
 
 \section*{7.}
 \subsection*{a.}
 Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grand. Ainsi, les pas d'évloution de Trotter seront plus grand et comme que l'erreur fait par la troterrisation est inversement proportionnel à la longueur des pas pris dans l'évolution, on obtient une plus grande erreur de Trotter. Ainsi, malgré qu'augmenter le temps T aide au processus adiabatique à converger vers le bon état fondamental mais augmente les erreurs de Trotter faite dans le calcul. Ainsi, on obtient pas nécessairement une meilleure précision.
+\\\\
+L'erreur de trotter est en fait en $\bigo((\delta t)^2)$...
 
 \textbf{OK COMME EXPLICATION??? PLUS DE CALCUL/ ÉQUATIONS??? }
 \subsection*{b.}
@@ -101,7 +103,7 @@ Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée
 \end{quantikz}
 \end{center}
 
-Pour un unitaire $U$ et opérateur $O$ quelconques, on obtient que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et son propre inverse et le fait que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
+Pour un unitaire $U$ et opérateur $O$ quelconques, on sait que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et son propre inverse et que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
 
 \begin{align*}
     \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)&=\bigg(C_1X_2\bigg)e^{-i\frac{\theta}{2}\idd Z}\bigg(C_1X_2\bigg)\\
@@ -126,27 +128,24 @@ Simplifions $CX[\idd Z]CX$:
 
 Ainsi, en revenant au premier développement, on obtient que
 \begin{equation*}
-    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}=e^{-i\frac{\theta}{2}Z_1Z_2}
+    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}=e^{-i\frac{\theta}{2}Z_1Z_2}\ \ \blacksquare
 \end{equation*}
 
 Le circuit plus haut implémente donc bel et bien la porte désirée.
 
 
 \section*{9.}
-\textbf{C'EST BIEN CE QU'IL VEUT?? PAS LE NOMBRE DE CHEMINS MINIMAUX?? ET EXPLICATION EN RAISONNEMENT MATH? JE CROIS QUE C'EST LA BONNE MANIÈRE}
-
 Voici les contraintes à respecter:
 \begin{enumerate}
     \item Tout les sommets sont visités exactement une fois.
     \item Exactement un sommet est visité par temps.
     \item On commence au temps 1 dans le premier noeud.
 \end{enumerate}
-
 Selon la matrice D, on remarque qu'il y a N=4 sommets à visiter (c'est une matrice 4 par 4). Ainsi, on peut déduire qu'il y a $3!=6$ chemins possibles respectant les contraintes.
-
-Effectivement, on puisqu'on choisi chaque sommet exactement une fois et 1 sommet par temps, il est possible de voir le nombre de possibilités comme le nombre de manières d'ordoner N éléments (où l'ordre signifie l'ordre de visite). Par contre, puisque le premier sommet doit absoluement être le premier qui est visité, nous avons que le nombre de chemins possibles est réduit. En effet, un chemin sera décrit par le premier sommet et ensuite le un arrangement des N-1 autres sommets. Ainsi, puisqu'on visite tout les sommets exactement une fois, nous savons que nous choisissons le prmeier sommet comme point de départ et ensuite le nombre de combinaisons possibles sera le nombre de manières d'ordnner les N-1 dernier sommets. Ainsi, le nombre de solutions (chemins) possibles selon les 3 contraintes est de $(N-1)!$.
-
-Donc, puisque N=4 ici, on obtient qu'il y a bel et bien $3!=6$ solutions possibles.
+\\\\
+Effectivement, puisqu'on choisi chaque sommet exactement une fois et 1 sommet par temps, il est possible de voir le nombre de possibilités comme le nombre de manières d'ordoner N éléments (où l'ordre signifie l'ordre de visite). Par contre, puisque le premier sommet doit absoluement être le premier qui est visité, nous avons que le nombre de chemins possibles est réduit. En effet, un chemin sera décrit par le premier sommet et ensuite, un arrangement des N-1 autres sommets. Ainsi, puisqu'on visite tous les sommets exactement une fois et que nous choisissons le premier sommet comme point de départ, le nombre de combinaisons possibles sera le nombre de manières d'ordnner les N-1 dernier sommets. Le nombre de solutions (chemins) possibles selon les 3 contraintes est donc de $(N-1)!$.
+\\\\
+Dans notre cas, N = 4. On obtient alors $3!=6$ solutions possibles.
 
 \section*{10.}
 Selon le code du jupyter notebook intitulé \textit{devoir2.ipynb}, voici le chemin optimal obtenu selon l'histogramme.
