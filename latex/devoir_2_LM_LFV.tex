@@ -11,10 +11,6 @@
 % \tableofcontents
 \newpage
 
-\textbf{ICI mes positions débutent à 1}
-
-\textbf{MAINTENANT QUE J'Y PENSE PEUT-ÊTRE QU'ON METS N+1 TEMPS, POUR S'ASSURER QU'ON REVIENNE JSP JE PENSE PAS VOIR}
-
 \section*{1.}
 Sachant que nous devons utiliser un qubit par noeud du graphe et par position dans le chemin, pour un graphe ayant N noeuds, nous avons besoin de $N^2$ qubits. En effet, comme on doit passer par tout les sommets du graphe dans le problème du commis voyageur, le nombre de positions possibles dans le chemin est de N. Ainsi, chacun des N sommets peut être à N positions dans le chemin parcouru. Puisque nous prenons un qubit décrit par ces deux paramètre: $q_{i,t}$, on obtient $N^2$ qubits nécessaires.
 
@@ -34,7 +30,6 @@ où $d_{i,j}$ est la distance (ou le poid) entre les noeuds i et j dans le graph
 
 En effet, cette fonction fait tout simplement sommer sur le poids de toutes les arrêtes visitées. Nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après et vaut 0 dans tout les autres cas. Donc, on obtient que la fonction sera minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arrêtes sont toutes de poids positifs par définition du problème.
 
-\textbf{PLUS D'EXPLICATION??? OK ENTRÉE DE F}
 
 \section*{3.}
 Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Ainsi, on a la contrainte suivante pour chaque i $\in$ [1, N]:
@@ -85,15 +80,20 @@ Ainsi, en combinant les contraintes plus haut, on obtient:
 
 \section*{7.}
 \subsection*{a.}
-Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grand. Ainsi, les pas d'évloution de Trotter seront plus grand et comme que l'erreur fait par la troterrisation est inversement proportionnel à la longueur des pas pris dans l'évolution, on obtient une plus grande erreur de Trotter. Ainsi, malgré qu'augmenter le temps T aide au processus adiabatique à converger vers le bon état fondamental mais augmente les erreurs de Trotter faite dans le calcul. Ainsi, on obtient pas nécessairement une meilleure précision.
+Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grands. En fait on augmente le temps total en conservant le même nombre de pas. On a donc des pas plus grands. 
 \\\\
-L'erreur de trotter est en fait en $\bigo((\delta t)^2)$...
+Lorsqu'on fait la trotterisation, le pas choisi à une grande influence sur l'erreur. Plus les pas sont petits, plus l'erreur est petite elle aussi. C'est donc dire que l'erreur est proportionnelle au pas choisi. 
+\\\\
+Dans notre cas, on augmente le pas, ce qui introduit une plus grande erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Mais puisqu'on utilise la trotterisation, augmenter T sans changer M ne mène donc pas à une meilleure précision.
 
-\textbf{OK COMME EXPLICATION??? PLUS DE CALCUL/ ÉQUATIONS??? }
+
 \subsection*{b.}
-Augmenter M en gardant t fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus petits. Ainsi, les pas d'évloution de Trotter seront plus petits et comme que l'erreur fait par la troterrisation est inversement proportionnel à la longueur des pas pris dans l'évolution, on obtient une plus petite erreur de Trotter. Par contre, le temps d'évolution total est inchangé faisant en sorte que le le processus adiabatique n'est pas plus précis. En effet, on évolue le système adiabatique à la même vitesse. Ainsi, puisque la précision d'un processus adiabatique est proportionnel au temps donné à l'algorithme, garder le temps fixe garde la même précision. Ainsi, si l'erreur de Trotter était déjà minime comparé à celle faite par le processus adiabatique, on obtient qu'augmenter M en gardant T fixe n'augmentera pas nécessairement la précision.
+Augmenter M en gardant T fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus petits. En fait on augmente le nombre de pas en conservant le même temps total. On a donc des pas plus petits. 
+\\\\
+Comme expliqué en a), la trotterisation est sensible au choix de ce pas en terme d'erreur.  
+\\\\
+Dans notre cas, on diminue le pas, ce qui introduit une plus petite erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Dans ce cas, on ne change pas T mais uniquement M. On ne peut donc pas dire que ce changement des paramètres mène nécessairement à une meilleure précision, car cette précision peut très bien dépendre du temps T pour l'algorithme adiabatique. 
 
-\textbf{OK COMME EXPLICATION??? PLUS DE CALCUL/ ÉQUATIONS??? ET PAS SUR QUE C'EST JUSTE ÇA. RAJOUTER LE MOT NÉGLIGEABLE}
 \section*{8.}
 Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée par le circuit suivant:
 \begin{center}
