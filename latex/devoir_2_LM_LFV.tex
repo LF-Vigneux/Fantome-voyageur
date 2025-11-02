@@ -36,6 +36,15 @@ Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de
 \begin{equation*}
     1-\sum_{t=1}^N x_{i,t} = 0
 \end{equation*}
+Ainsi, puisque toutes les variables $x_{i, t}$ sont prises comme soit 0 ou 1, on a que cette contrainte est respectée si, $\sum_{t = 1}^Nx_{i, t} = 1$. C'est donc dire que que le noeud possède un unique temps de visite, et donc qu'il est visité une unique fois. 
+
+
+Puisqu'on veut que cette contrainte soit bonne pour chaque i, on ajoute donc une contrainte de la sprte sur chaque sommet i. Ainsi, N contraintes sont ajoutées, une par sommet i.
+
+Avec ces contraintes on a que chaque sommet du graphe est visité exactement une fois.
+
+
+\subsubsection*{Ancienne version}
 Puisqu'on veut que cette contrainte soit bonne pour chaque i, on peut faire une somme pour rendre cette contrainte générale:
 \begin{equation*}
     \sum_{i = 1}^N\bigg(1-\sum_{t=1}^N x_{i,t}\bigg) = 0
@@ -43,6 +52,14 @@ Puisqu'on veut que cette contrainte soit bonne pour chaque i, on peut faire une 
 Ainsi, puisque toutes les variables $x_{i, t}$ sont prises comme soit 0 ou 1, on a que cette contrainte est respectée si pour tout i, $\sum_{t = 1}^Nx_{i, t} = 1$. C'est donc dire que chaque noeuds possèdent un unique temps, et donc qu'ils sont visités une unique fois. 
 
 \section*{4.}
+Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire les N contraintes, pour chaque t, de la forme  suivante:
+\begin{equation*}
+    1-\sum_{i=1}^N x_{i,t} = 0
+\end{equation*}
+En fait, c'est le même raisonnement que pour la question précédente. Pour chaque valeur de temps, chaque contrainte, on doit s'assurer qu'il existe un seul noeud. C'est exactement ce que vérifie cette contrainte par la même logique que précédément. 
+
+
+\subsubsection*{Ancienne version}
 Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire la contrainte suivante:
 \begin{equation*}
     \sum_{t=1}^N\bigg(1-\sum_{i=1}^N x_{i,t}\bigg) = 0
@@ -69,13 +86,40 @@ Pour ce qui est des contraintes, on peut simplement les ajouter à la fonction d
 \\
 De cette façon, les contraintes doivent être nulles afin d'introduire la plus petite pénalité possible sur la fonction de coût.
 \\\\
-Ainsi, en combinant les contraintes plus haut, on obtient:
+Ainsi, en combinant les contraintes plus haut, et, en sommant sur toute les contraintes indiduelles plus haut, on obtient:
 \begin{align*}
-    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
+    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\Bigg)+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\Bigg)\\
     &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
     \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
-    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
-    &\:\:\:\:\:+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
+    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2\Bigg)\\
+    &\:\:\:\:\:+\beta\Bigg(\sum_{t=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\Bigg)+\gamma\Bigg(\frac{1}{2}\idd +\frac{1}{2}Z_{1,1}\Bigg)^2\\
+    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2\Bigg)\\
+    &\:\:\:\:\:+\beta\Bigg(\sum_{t=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\Bigg)+\frac{\gamma}{4}\idd+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{4}Z_{1,1}Z_{1,1}\\
+    &=\bigg(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg)\idd-\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}
+    -\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}\\
+    &\:\:\:\:\:+\alpha\Bigg(\sum_{i=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2\Bigg)+\beta\Bigg(\sum_{t=1}^N\bigg((1-\frac{N}{2})\idd+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2\Bigg)+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
+    \intertext{Sachant que $\bigg(\sum_i^Nx_i\bigg)^2=\sum_{i=1}^Nx_i^2+2\sum_{i=1}^N\sum_{j=i+1}^Nx_ix_j$}
+    &=\bigg(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg)\idd-\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}
+    -\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
+    &\:\:\:\:\:+\alpha\Bigg(\sum_{i=1}^N\bigg((1-\frac{N}{2})^2\idd+\frac{1}{4}\sum_{t=1}^NZ_{i,t}^2+(1-\frac{N}{2})\sum_{t=1}^NZ_{i,t}+\frac{1}{2}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\bigg)\Bigg)\\
+    &\:\:\:\:\:+\beta\Bigg(\sum_{t=1}^N\bigg((1-\frac{N}{2})^2\idd+\frac{1}{4}\sum_{i=1}^NZ_{i,t}^2+(1-\frac{N}{2})\sum_{i=1}^NZ_{i,t}+\frac{1}{2}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\bigg)\Bigg)\\
+    \intertext{Puisque $Z^2=\idd$,}
+    &=\bigg(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg)\idd-\frac{1}{4}\sum_{i,t=1}^N (\sum_{j=1}^N d_{i,j})Z_{i,t}
+    -\frac{1}{4}\sum_{j,t=1}^N (\sum_{i=1}^N d_{i,j})Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
+    &\:\:\:\:\:+\alpha N(1-\frac{N}{2})\idd+\alpha(1-\frac{N}{2})\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
+    &\:\:\:\:\:+\beta N(1-\frac{N}{2})\idd+\beta(1-\frac{N}{2})\sum_{i,t=1}^{N}Z_{i,t}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    \intertext{Regroupant les termes,}
+    &=\bigg((\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j})+\frac{\gamma}{2}+\alpha N(1-\frac{N}{2})+\beta N(1-\frac{N}{2})\bigg)\idd\\
+    &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N (\sum_{j=1}^N d_{i,j})Z_{i,t}
+    -\frac{1}{4}\sum_{j,t=1}^N (\sum_{i=1}^N d_{i,j})Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
+    &\:\:\:\:\:+(\alpha(1-\frac{N}{2})+\beta(1-\frac{N}{2}))\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    \intertext{Puisque la matrice d est symétrique, $(\sum_{j=1}^N d_{i,j})=(\sum_{x=1}^N d_{i,x})=(\sum_{i=1}^N d_{i,j})$ et le fait que sommer sur tout les t+1 revient à sommer sur tout les t (la somme du terme $Z_{j,t+1}$),}
+    &=\bigg((\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j})+\frac{\gamma}{2}+N(\alpha+\beta)(1-\frac{N}{2})\bigg)\idd\\
+    &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N (\sum_{x=1}^N d_{i,x})Z_{i,t}
+    -\frac{1}{4}\sum_{i,t=1}^N (\sum_{x=1}^N d_{i,x})Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
+    &\:\:\:\:\:+(\alpha+\beta)(1-\frac{N}{2})\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    &=\bigg((\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j})+\frac{\gamma}{2}+N(\alpha+\beta)(1-\frac{N}{2})\bigg)\idd+\sum_{i,t=1}^N ((\alpha+\beta)(1-\frac{N}{2})-\frac{1}{2}\sum_{x=1}^N d_{i,x})Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}\\
+    &\:\:\:\:\:+\frac{\gamma}{2} Z_{1,1}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}
 \end{align*}
 
 \section*{7.}
@@ -152,9 +196,26 @@ Selon le code du jupyter notebook intitulé \textit{devoir2.ipynb}, voici le che
 \textbf{Avons nous le droit d'utiliser un bloc troterrisation de qiskit ou l'implémenter à la main?, Hamil dur à faire à la main... Hamil plus simple?
 }
 Il faut l'implémenter à la main.
+
+
+Expliquer les portes calculées?
+
+\textbf{Toutes les portes de HP commutent}
+
+
+\textbf{HBAR=1?? ET ÉVOLUTION D'IDENTITÉ???}
 \section{Backup}
 \begin{align*}
     \bigg(C_1X_2\bigg)RZ(\theta)\bigg(C_1X_2\bigg)&=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\idd\otimes e^{-i\frac{\theta}{2}Z}\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\\
     &=\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\bigg(\cos(\frac{\theta}{2})\idd\otimes \idd-i\sin(\frac{\theta}{2})\idd\otimes Z\bigg)\bigg(\sameproj{0}\otimes \idd +\sameproj{1}\otimes X\bigg)\\
+\end{align*}
+
+
+\begin{align*}
+    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\Bigg)+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\Bigg)\\
+    &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
+    \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
+    &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\Bigg(\sum_{i=1}^N\bigg(1-\frac{1}{2}\sum_{t=1}^N \bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2\\
+    &\:\:\:\:\:+\beta\Bigg(\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)\Bigg)^2+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
 \end{align*}
 \end{document}
