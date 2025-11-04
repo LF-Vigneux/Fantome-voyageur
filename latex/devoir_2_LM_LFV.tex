@@ -91,19 +91,19 @@ Ainsi, en combinant les contraintes plus haut, et, en sommant sur toute les cont
     &=\bigg(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg)\idd-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{j=1}^N d_{i,j}\Big)Z_{i,t}
     -\frac{1}{4}\sum_{j,t=1}^N \Big(\sum_{i=1}^N d_{i,j}\Big)Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
     &\:\:\:\:\:+\alpha N\Big(1-\frac{N}{2}\Big)\idd+\alpha\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
-    &\:\:\:\:\:+\beta N\Big(1-\frac{N}{2}\Big)\idd+\beta\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    &\:\:\:\:\:+\beta N\Big(1-\frac{N}{2}\Big)\idd+\beta\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
     \intertext{Regroupant les termes,}
     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\Big(1-\frac{N}{2}\Big)+\beta N\Big(1-\frac{N}{2}\Big)\bigg)\idd\\
     &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{j=1}^N d_{i,j}\Big)Z_{i,t}
     -\frac{1}{4}\sum_{j,t=1}^N \Big(\sum_{i=1}^N d_{i,j}\Big)Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
-    &\:\:\:\:\:+\bigg(\alpha\Big(1-\frac{N}{2}\Big)+\beta\Big(1-\frac{N}{2}\Big)\bigg)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    &\:\:\:\:\:+\bigg(\alpha\Big(1-\frac{N}{2}\Big)+\beta\Big(1-\frac{N}{2}\Big)\bigg)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
     \intertext{Puisque la matrice d est symétrique, $(\sum_{j=1}^N d_{i,j})=(\sum_{x=1}^N d_{i,x})=(\sum_{i=1}^N d_{i,j})$ et le fait que sommer sur tout les t+1 revient à sommer sur tout les t (la somme du terme $Z_{j,t+1}$),}
     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+N(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\bigg)\idd\\
     &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}
     -\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
-    &\:\:\:\:\:+(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}\\
+    &\:\:\:\:\:+(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+N(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\bigg)\idd+\sum_{i,t=1}^N \bigg((\alpha+\beta)\Big(1-\frac{N}{2}\Big)-\frac{1}{2}\sum_{x=1}^N d_{i,x}\bigg)Z_{i,t}\\
-    &\:\:\:\:\:+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{i,t+1}
+    &\:\:\:\:\:+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}
 \end{align*}
 
 \section*{7.}
