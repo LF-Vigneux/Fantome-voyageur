@@ -176,18 +176,15 @@ Effectivement, puisqu'on choisi chaque sommet exactement une fois et 1 sommet pa
 Dans notre cas, N = 4. On obtient alors $3!=6$ solutions possibles.
 
 \section*{10.}
-Selon le code du jupyter notebook intitulé \textit{devoir2.ipynb}, voici le chemin optimal obtenu selon l'histogramme.
-\textbf{Avons nous le droit d'utiliser un bloc troterrisation de qiskit ou l'implémenter à la main?, Hamil dur à faire à la main... Hamil plus simple?
-}
-Il faut l'implémenter à la main.
+La figure \ref{histo} montre les résultats obtenus dans le fichier de code \textit{devoir2.ipynb}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{histogramme.pdf}
+    \caption{Histogramme des résultats obtenus avec $\alpha = \beta = \gamma = 10$.}
+    \label{histo}
+\end{figure}
+On voit que les solutions les plus probables sont des solutions valides, tandis que les solutions les moins probables ne sont pas valides. Pour ce calcul, nous avons utilisé 300 pas de trotter pour un temps total de 20 secondes. On peut aussi observer les poids des différentes solution dans le notebook et se convaincre qu'on a obtenu une bonne réponse pour le PVC (on pourrait comparer avec une alternative classique, mais on ne le fera pas ici). 
 
-Expliquer les portes calculées?
-
-\textbf{Toutes les portes de HP commutent}
-
-
-\textbf{HBAR=1?? ET ÉVOLUTION D'IDENTITÉ???} OUI et on choisi alpha beta et gamma
-\section{Backup}
 
 \end{document}
