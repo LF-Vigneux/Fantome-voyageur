@@ -12,10 +12,10 @@
 \newpage
 
 \section*{1.}
-Sachant que nous devons utiliser un qubit par noeud du graphe et par position dans le chemin, pour un graphe ayant N noeuds, nous avons besoin de $N^2$ qubits. En effet, comme on doit passer par tout les sommets du graphe dans le problème du commis voyageur, le nombre de positions possibles dans le chemin est de N. Ainsi, chacun des N sommets peut être à N positions dans le chemin parcouru. Puisque nous prenons un qubit décrit par ces deux paramètre: $q_{i,t}$, on obtient $N^2$ qubits nécessaires.
+Sachant que nous devons utiliser un qubit par nœud du graphe et par position dans le chemin, pour un graphe ayant N nœuds, nous avons besoin de $N^2$ qubits. En effet, comme on doit passer par tous les sommets du graphe et revenir dans ce problème, le nombre de positions possibles dans le chemin est de N (le temps N+1 est implicitement le premier temps où on revient au premier sommet). Ainsi, chacun des N sommets peut être à N positions dans le chemin parcouru. Puisque nous prenons un qubit décrit par ces deux paramètres: $q_{i,t}$, on obtient $N^2$ qubits nécessaires.
 
 \section*{2.}
-Pour le PVC, nous devons trouver le chemin minimisant le poids total des arrêtes visitées. Puisque le poids de ces arrêtes et le nombre de sommets du graphe ne peuvent être optimisés (entrées du problème), la fonction de coût doit uniquement se baser sur le chemin emprunté et doit être minimale pour le chemin de poids minimal.
+Pour le PVC, nous devons trouver le chemin minimisant le poids total des arêtes visitées. Puisque le poids de ces arêtes et le nombre de sommets du graphe ne peuvent être optimisés (entrées du problème), la fonction de coût doit uniquement se baser sur le chemin emprunté et doit être minimale pour le chemin de poids minimal.
 
 Ainsi, posons en entrée de la fonction de coût la matrice $N\times N$ $X$ où les éléments de la matrice ont comme valeur $x_{i,t}=\begin{cases}
       1 &\text{si le sommet i est visité au temps t} \\
@@ -26,54 +26,57 @@ Ainsi, la fonction de coût proposé est la suivante:
 \begin{equation*}
     f(X)=\sum_{i,j,t=1}^N d_{i,j}x_{i,t}x_{j,t+1}
 \end{equation*}
-où $d_{i,j}$ est la distance (ou le poid) entre les noeuds i et j dans le graphe et le temps t=N+1 est équivalent au temps t=1 (ce qui revient à rajouter un modulo N dans l'expression du t+1). 
+où $d_{i,j}$ est la distance (ou le poids) entre les nœuds i et j dans le graphe et le temps t=N+1 est équivalent au temps t=1 (ce qui revient à rajouter un modulo N dans l'expression du t+1). 
 
-En effet, cette fonction fait tout simplement sommer sur le poids de toutes les arrêtes visitées. Nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après et vaut 0 dans tout les autres cas. Donc, on obtient que la fonction sera minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arrêtes sont toutes de poids positifs par définition du problème.
+En effet, cette fonction fait tout simplement sommer sur le poids de toutes les arêtes visitées. Nous avons que $x_{i,t}x_{j,t+1}$ vaut 1 seulement si on a visité le sommet i au temps t et le sommet $j$ est celui visité directement après. Dans tous les autres cas, ce terme est nul. Donc, on obtient que la fonction soit minimale seulement lorsque le chemin de poids minimal sera emprunté puisque les arêtes sont toutes de poids positifs par définition du problème.
 
 
 \section*{3.}
-Pour s'assurer que chaque noeud est visité exactement une fois, chaque ligne de la matrice en entrée doit sommer exactement à 1. Pour un sommet en particulier, on peut ajouter cette contrainte pour vérifier que la ligne de ce sommet se somme bel et bien à 1:
+Pour s'assurer que chaque nœud est visité exactement une fois, chaque ligne de la matrice X doit sommer exactement à 1. Pour un sommet i, on peut ajouter cette contrainte pour vérifier que la ligne dans X qui lui est associé somme bel et bien à 1:
 \begin{equation*}
     1-\sum_{t=1}^N x_{i,t} = 0
 \end{equation*}
-Ainsi, puisque toutes les variables $x_{i, t}$ sont prises comme soit 0 ou 1, on a que cette contrainte est respectée si, $\sum_{t = 1}^Nx_{i, t} = 1$. C'est donc dire que que le noeud possède un unique temps de visite, et donc qu'il est visité une unique fois. 
+Ainsi, puisque toutes les variables $x_{i, t}$ sont prises comme soit 0 ou 1, on a que cette contrainte est respectée si, $\sum_{t = 1}^Nx_{i, t} = 1$. C'est donc dire que le nœud possède un unique temps de visite, et donc qu'il est visité une unique fois. 
 \\\\
-On veut que cette contrainte soit bonne pour chaque i (que chaque sommet du graphe soit visité une fois). On la somme donc pour chaque sommet i. Ainsi, N contraintes sont ajoutées.
+Il suffit maintenant d'ajouter une cette contrainte pour chaque sommet i. Il y a donc N contraintes de ce type.
 \\\\
 Avec ces contraintes on a que chaque sommet du graphe est visité exactement une fois.
 
 
 \section*{4.}
-Pour s'assurer qu'exactement un noeud est visité à chaque temps, il faut introduire les N contraintes, pour chaque t, de la forme  suivante:
+Pour s'assurer qu'exactement un nœud est visité à chaque temps, il faut introduire les N contraintes, pour chaque t, de la forme  suivante pour un t particulier:
 \begin{equation*}
     1-\sum_{i=1}^N x_{i,t} = 0
 \end{equation*}
-En fait, c'est le même raisonnement que pour la question précédente. Pour chaque valeur de temps, on doit s'assurer qu'il existe un seul noeud. C'est exactement ce que vérifient ces contraintes par la même logique que précédément. 
+En fait, c'est le même raisonnement que pour la question précédente. Pour chaque valeur de temps, on doit s'assurer qu'il y a un seul nœud de visité. C'est exactement ce que vérifie cette contrainte par la même logique que précédemment. Ainsi, une contrainte de ce type, pour chaque temps t sera implémentée. Il y en aura aussi N au total. 
 
 
 
 \section*{5.}
-Pour imposer que le noeud 1 doit être visité au temps $t=1$, il est possible d'ajouter la contrainte suivante.
+Pour imposer que le nœud 1 doive être visité au temps $t=1$, il est possible d'ajouter la contrainte suivante.
 \begin{equation*}
     1-x_{1,1} = 0
 \end{equation*}
-Effectivement, puisque $x_{1,1}\in \{0,1\}$ et qu'il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est respecté lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet est acessible au temps t=1.
+Effectivement, puisque $x_{1,1}\in \{0,1\}$ et qu'il vaut 1 si seulement si le sommet 1 est visité au temps 1, nous avons bel et bien que la contrainte suivante est respectée lorsque $x_{1,1}=1$. De plus, la condition du numéro 4 s'assurera qu'aucun autre sommet n’est accessible au temps t=1. Ainsi, on s'assure que le premier sommet visité est le premier.
 
 \section*{6.}
+Transformons la fonction de coût en l'hamiltonien du problème $H_p$ en utilisant la convention des qubits de l'énoncé.
+
 Il est possible de représenter les éléments $x_{i,t}$ avec les matrices $Z_{i,t}$ de la manière suivante:
 \begin{equation*}
     x_{i,t}\sim \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg).
 \end{equation*}
-En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le vecteur propre $\ket{0}$ a pour valeur propre 0 pour cet opérateur. Les $x_{i, t}$ sont en fait des projecteurs sur le qubits $q_{i, t}$ ($x_{i, t}= \sameproj{1}_{i, t}$).
+En effet, on a que le vecteur propre $\ket{1}$ a pour valeur propre 1 et que le vecteur propre $\ket{0}$ a pour valeur propre 0 pour cet opérateur. Les $x_{i, t}$ sont en fait des projecteurs sur les qubits $q_{i, t}$ ($x_{i, t}= \sameproj{1}_{i, t}$).
 \\\\
 Pour ce qui est des contraintes, on peut simplement les ajouter à la fonction de coût sous forme de pénalités $\alpha C^2$ où $\alpha$ est une constante et C est la contrainte qui doit être nulle. 
 \\
 De cette façon, les contraintes doivent être nulles afin d'introduire la plus petite pénalité possible sur la fonction de coût.
 \\\\
-Ainsi, en combinant les contraintes plus haut, et, en sommant sur toute les contraintes individuelles, on obtient:
+Ainsi, en combinant les contraintes plus haut, et, en sommant sur toutes les contraintes individuelles, on obtient:
 \begin{align*}
-    H&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\\
+    H_p&=\sum_{i,j,t=1}^N d_{i,j}\frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\frac{1}{2}\bigg(\idd-Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(1-\sum_{t=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2+\beta\sum_{t=1}^N\bigg(1-\sum_{i=1}^N \frac{1}{2}\bigg(\idd-Z_{i,t}\bigg)\bigg)^2\\
     &\:\:\:\:\:+\gamma\Bigg(1-\frac{1}{2}\bigg(\idd-Z_{1,1}\bigg)\Bigg)^2\\
+    \intertext{Tentons de développer pour faciliter l'implémentation}
     \intertext{En distribuant les sommes et le fait que $\sum_{i=1}^N\idd=N$,}
     &=\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg(\idd-Z_{i,t}-Z_{j,t+1}+Z_{i,t}Z_{j,t+1}\bigg)+\alpha\sum_{i=1}^N\bigg(\Big(1-\frac{N}{2}\Big)\idd+\frac{1}{2}\sum_{t=1}^N Z_{i,t}\bigg)^2\\
     &\:\:\:\:\:+\beta\sum_{t=1}^N\bigg(\Big(1-\frac{N}{2}\Big)\idd+\frac{1}{2}\sum_{i=1}^N Z_{i,t}\bigg)^2+\gamma\Bigg(\frac{1}{2}\idd +\frac{1}{2}Z_{1,1}\Bigg)^2\\
@@ -87,41 +90,28 @@ Ainsi, en combinant les contraintes plus haut, et, en sommant sur toute les cont
     -\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
     &\:\:\:\:\:+\alpha\sum_{i=1}^N\bigg(\Big(1-\frac{N}{2}\Big)^2\idd+\frac{1}{4}\sum_{t=1}^NZ_{i,t}^2+\Big(1-\frac{N}{2}\Big)\sum_{t=1}^NZ_{i,t}+\frac{1}{2}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\bigg)\\
     &\:\:\:\:\:+\beta\sum_{t=1}^N\bigg(\Big(1-\frac{N}{2}\Big)^2\idd+\frac{1}{4}\sum_{i=1}^NZ_{i,t}^2+\Big(1-\frac{N}{2}\Big)\sum_{i=1}^NZ_{i,t}+\frac{1}{2}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\bigg)\\
-    \intertext{Puisque $Z^2=\idd$ \textbf{ICI À FAIRE, IL MANQUE UN +N/4 DANS LES TERMES IDENTITÉS, J'AI RETIRÉS LES Z CARRÉ POUR UNE RAISON X}}
+    \intertext{Puisque $Z^2=\idd$,}
     &=\bigg(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\bigg)\idd-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{j=1}^N d_{i,j}\Big)Z_{i,t}
     -\frac{1}{4}\sum_{j,t=1}^N \Big(\sum_{i=1}^N d_{i,j}\Big)Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\gamma}{2}\idd\\
-    &\:\:\:\:\:+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\idd+\alpha\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
-    &\:\:\:\:\:+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\idd+\beta\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
-    \intertext{Regroupant les termes,}
-    &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
-    &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{j=1}^N d_{i,j}\Big)Z_{i,t}
-    -\frac{1}{4}\sum_{j,t=1}^N \Big(\sum_{i=1}^N d_{i,j}\Big)Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
-    &\:\:\:\:\:+\bigg(\alpha\Big(1-\frac{N}{2}\Big)+\beta\Big(1-\frac{N}{2}\Big)\bigg)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
-    \intertext{Puisque la matrice d est symétrique, $(\sum_{j=1}^N d_{i,j})=(\sum_{x=1}^N d_{i,x})=(\sum_{i=1}^N d_{i,j})$ et le fait que sommer sur tout les t+1 revient à sommer sur tout les t (la somme du terme $Z_{j,t+1}$),}
-    &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
-    &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}
-    -\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
-    &\:\:\:\:\:+(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
-    &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
-    &\:\:\:\:\:+\sum_{i,t=1}^N \bigg((\alpha+\beta)\Big(1-\frac{N}{2}\Big)-\frac{1}{2}\sum_{x=1}^N d_{i,x}\bigg)Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
-    &\:\:\:\:\:+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}
+    &\:\:\:\:\:+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{N}{4}\bigg)\idd+\alpha\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
+    &\:\:\:\:\:+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{N}{4}\bigg)\idd+\beta\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}
 \end{align*}
 
 \section*{7.}
 \subsection*{a.}
-Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grands. En fait on augmente le temps total en conservant le même nombre de pas. On a donc des pas plus grands. 
+Augmenter T en gardant M fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus grands. En fait on augmente le temps total en conservant le même nombre de pas.
 \\\\
-Lorsqu'on fait la trotterisation, le pas choisi à une grande influence sur l'erreur. Plus les pas sont petits, plus l'erreur est petite elle aussi. C'est donc dire que l'erreur est proportionnelle au pas choisi. 
+Lorsqu'on fait de la trotterisation, le pas choisi a une grande influence sur l'erreur. Plus les pas sont petits, plus l'erreur faite sur l'évolution sera petite. C'est donc dire que l'erreur est proportionnelle au pas choisi. 
 \\\\
-Dans notre cas, on augmente le pas, ce qui introduit une plus grande erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Mais puisqu'on utilise la trotterisation, augmenter T sans changer M ne mène pas à une meilleure précision.
+Dans notre cas, on augmente le pas, ce qui introduit une plus grande erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Mais puisqu'on utilise la trotterisation, augmenter T sans changer M ne mène pas nécessairement à une meilleure précision.
 
 
 \subsection*{b.}
-Augmenter M en gardant T fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus petits. En fait on augmente le nombre de pas en conservant le même temps total. On a donc des pas plus petits. 
+Augmenter M en gardant T fixe fait en sorte que les $\delta t=\frac{T}{M}$ seront plus petits. En effet on augmente le nombre de pas en conservant le même temps total.
 \\\\
 Comme expliqué en a), la trotterisation est sensible au choix de ce pas en terme d'erreur.  
 \\\\
-Dans notre cas, on diminue le pas, ce qui introduit une plus petite erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Dans ce cas, on ne change pas T mais uniquement M. On ne peut donc pas dire que ce changement des paramètres mène nécessairement à une meilleure précision, car cette précision peut très bien dépendre du temps T pour l'algorithme adiabatique. 
+Dans notre cas, on diminue le pas, ce qui introduit une plus petite erreur de trotterisation. Le côté adiabatique de l'algorithme a besoin d'un T plus grand pour faire moins d'erreurs dans le calcul en fonction du gap. Dans ce cas, on ne change pas T mais uniquement M. On ne peut donc pas dire que ce changement des paramètres mène nécessairement à une meilleure précision, car le temps T choisi n'est peut-être pas optimal face au gap de $H_p$. Ainsi, si T est mal choisi, prendre des pas de Trotter plus petit n'améliore pas nécessairement la précision.
 
 \section*{8.}
 Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée par le circuit suivant:
@@ -132,7 +122,7 @@ Montrons que la porte $\exp(\frac{-i\theta Z_1Z_2}{2})$ peut être implémentée
 \end{quantikz}
 \end{center}
 
-Pour un unitaire $U$ et opérateur $O$ quelconques, on sait que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et son propre inverse et que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
+Pour un unitaire $U$ et opérateur $O$ quelconques, on sait que $Ue^{i\theta O}U^\dag=e^{i\theta (UOU^\dag)}$. Ainsi puisque $C_X$ est un unitaire et auto-inverse et que la porte de rotation $Z$ sur le deuxième qubit peut être exprimée comme $e^{-i\frac{\theta}{2}\idd Z}$,
 
 \begin{align*}
     \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)&=\bigg(C_1X_2\bigg)e^{-i\frac{\theta}{2}\idd Z}\bigg(C_1X_2\bigg)\\
@@ -152,12 +142,12 @@ Simplifions $CX[\idd Z]CX$:
     \intertext{Puisque $XX=\idd$,}
     &=(\sameproj{0}-\sameproj{1})\otimes Z\\
     \intertext{Sachant que $Z=\sameproj{0}-\sameproj{1}$,}
-    &=ZZ
+    &=Z\otimes Z
 \end{align*}
 
 Ainsi, en revenant au premier développement, on obtient que
 \begin{equation*}
-    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}=e^{-i\frac{\theta}{2}Z_1Z_2}\ \ \blacksquare
+    \bigg(C_1X_2\bigg)RZ_2(\theta)\bigg(C_1X_2\bigg)=e^{-i\frac{\theta}{2}(CX[\idd Z]CX)}=e^{-i\frac{\theta}{2}Z_1Z_2}
 \end{equation*}
 
 Le circuit plus haut implémente donc bel et bien la porte désirée.
@@ -166,13 +156,13 @@ Le circuit plus haut implémente donc bel et bien la porte désirée.
 \section*{9.}
 Voici les contraintes à respecter:
 \begin{enumerate}
-    \item Tout les sommets sont visités exactement une fois.
+    \item Tous les sommets sont visités exactement une fois.
     \item Exactement un sommet est visité par temps.
-    \item On commence au temps 1 dans le premier noeud.
+    \item On commence au temps 1 dans le premier nœud.
 \end{enumerate}
 Selon la matrice D, on remarque qu'il y a N=4 sommets à visiter (c'est une matrice 4 par 4). Ainsi, on peut déduire qu'il y a $3!=6$ chemins possibles respectant les contraintes.
 \\\\
-Effectivement, puisqu'on choisi chaque sommet exactement une fois et 1 sommet par temps, il est possible de voir le nombre de possibilités comme le nombre de manières d'ordoner N éléments (où l'ordre signifie l'ordre de visite). Par contre, puisque le premier sommet doit absoluement être le premier qui est visité, nous avons que le nombre de chemins possibles est réduit. En effet, un chemin sera décrit par le premier sommet et ensuite, un arrangement des N-1 autres sommets. Ainsi, puisqu'on visite tous les sommets exactement une fois et que nous choisissons le premier sommet comme point de départ, le nombre de combinaisons possibles sera le nombre de manières d'ordnner les N-1 dernier sommets. Le nombre de solutions (chemins) possibles selon les 3 contraintes est donc de $(N-1)!$.
+Effectivement, puisqu'on choisi chaque sommet exactement une fois et 1 sommet par temps, il est possible de voir le nombre de possibilités comme le nombre de manières d'ordonner N éléments (où l'ordonnancement représente le chemin emprunté). Par contre, puisque le premier sommet doit absolument être le premier qui est visité, nous avons que le nombre de chemins possibles est réduit. En effet, un chemin sera décrit par le premier sommet et ensuite, un arrangement des N-1 et autres sommets. Ainsi, puisqu'on visite tous les sommets exactement une fois et que nous choisissons le premier sommet comme point de départ, le nombre de combinaisons possibles sera tout simplement le nombre de manières d'ordonner les N-1 derniers sommets. Le nombre de solutions (chemins) possibles selon les 3 contraintes est donc de $(N-1)!$.
 \\\\
 Dans notre cas, N = 4. On obtient alors $3!=6$ solutions possibles.
 
@@ -185,7 +175,22 @@ La figure \ref{histo} montre les résultats obtenus dans le fichier de code \tex
     \caption{Histogramme des résultats obtenus avec $\alpha = \beta = \gamma = 10$.}
     \label{histo}
 \end{figure}
-On voit que les solutions les plus probables sont des solutions valides, tandis que les solutions les moins probables ne sont pas valides. Pour ce calcul, nous avons utilisé 300 pas de trotter pour un temps total de 20 secondes. On peut aussi observer les poids des différentes solution dans le notebook et se convaincre qu'on a obtenu une bonne réponse pour le PVC (on pourrait comparer avec une alternative classique, mais on ne le fera pas ici). Le poid minimal dans toutes les solutions valides obtenues est celui qu'on a obtenu le plus souvent qui correspond au chemin [0, 2, 3, 1].
+On voit que les solutions les plus probables sont des solutions valides (en vert), tandis que les solutions les moins probables ne sont pas valides (en rouge). Pour ce calcul, nous avons utilisé 300 pas de trotter pour un temps total de 20 secondes. On peut aussi observer les poids des différentes solutions dans le notebook et se convaincre qu'on a obtenu une bonne réponse pour le PVC . Le poids minimal dans toutes les solutions valides obtenues est celui qui a été mesuré avec la plus grande fréquence et il correspond au chemin [0, 2, 3, 1].
 
 
+
+
+% \intertext{Regroupant les termes,}
+%     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
+%     &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{j=1}^N d_{i,j}\Big)Z_{i,t}
+%     -\frac{1}{4}\sum_{j,t=1}^N \Big(\sum_{i=1}^N d_{i,j}\Big)Z_{j,t+1}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
+%     &\:\:\:\:\:+\bigg(\alpha\Big(1-\frac{N}{2}\Big)+\beta\Big(1-\frac{N}{2}\Big)\bigg)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
+%     \intertext{Puisque la matrice d est symétrique, $(\sum_{j=1}^N d_{i,j})=(\sum_{x=1}^N d_{i,x})=(\sum_{i=1}^N d_{i,j})$ et le fait que sommer sur tout les t+1 revient à sommer sur tout les t (la somme du terme $Z_{j,t+1}$),}
+%     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
+%     &\:\:\:\:\:-\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}
+%     -\frac{1}{4}\sum_{i,t=1}^N \Big(\sum_{x=1}^N d_{i,x}\Big)Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}\\
+%     &\:\:\:\:\:+(\alpha+\beta)\Big(1-\frac{N}{2}\Big)\sum_{i,t=1}^{N}Z_{i,t}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}\\
+%     &=\bigg(\Big(\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}\Big)+\frac{\gamma}{2}+\alpha N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)+\beta N\bigg(\Big(1-\frac{N}{2}\Big)^2+\frac{1}{4}\bigg)\bigg)\idd\\
+%     &\:\:\:\:\:+\sum_{i,t=1}^N \bigg((\alpha+\beta)\Big(1-\frac{N}{2}\Big)-\frac{1}{2}\sum_{x=1}^N d_{i,x}\bigg)Z_{i,t}+\frac{1}{4}\sum_{i,j,t=1}^N d_{i,j}Z_{i,t}Z_{j,t+1}+\frac{\gamma}{2} Z_{1,1}+\frac{\alpha}{2}\sum_{i=1}^{N}\sum_{t_1=1}^N\sum_{t_2=t_1+1}^NZ_{i,t_1}Z_{i,t_2}\\
+%     &\:\:\:\:\:+\frac{\beta}{2}\sum_{t=1}^{N}\sum_{i=1}^N\sum_{j=i+1}^NZ_{i,t}Z_{j,t}
 \end{document}

@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber devoir_2_LM_LFV"] 1762869408 "devoir_2_LM_LFV.bcf" "devoir_2_LM_LFV.bbl" "devoir_2_LM_LFV" 1762869413 0
-  "devoir_2_LM_LFV.bcf" 1762869413 106702 ac77d760a8ca41147b3dca0887b7f8b2 "pdflatex"
+["biber devoir_2_LM_LFV"] 1763308093 "devoir_2_LM_LFV.bcf" "devoir_2_LM_LFV.bbl" "devoir_2_LM_LFV" 1763314035 0
+  "devoir_2_LM_LFV.bcf" 1763314035 106702 ac77d760a8ca41147b3dca0887b7f8b2 "pdflatex"
   (generated)
   "devoir_2_LM_LFV.bbl"
   "devoir_2_LM_LFV.blg"
   (rewritten before read)
-["pdflatex"] 1762869411 "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" "devoir_2_LM_LFV.pdf" "devoir_2_LM_LFV" 1762869413 0
-  "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" 1762869314 16103 40763ff205c883745deb0b242c496d61 ""
+["pdflatex"] 1763314033 "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" "devoir_2_LM_LFV.pdf" "devoir_2_LM_LFV" 1763314035 0
+  "/Users/lf/Documents/GitHub/Fantome-voyageur/latex/devoir_2_LM_LFV.tex" 1763314033 16464 5f59adb1427eca44f4e7b859bbf6b4a0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -39,7 +39,6 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb" 1290383964 25452 d4e98a3bf6b13d4b7dcffd6302990a65 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb" 1290383964 25570 857e8ef1d068e88b2d8db4f6176e0f5c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1215737283 145408 43d44302ca7d82d487f511f83e309505 ""
@@ -245,11 +244,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1695785422 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1695785406 7883457 a29ce1728f06dfa68b9411a44c31a0e6 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "devoir_2_LM_LFV.aux" 1762869413 1114 34eec089a7109f5b3319e841506fff99 "pdflatex"
-  "devoir_2_LM_LFV.bbl" 1762869411 0 d41d8cd98f00b204e9800998ecf8427e "biber devoir_2_LM_LFV"
-  "devoir_2_LM_LFV.out" 1762869412 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "devoir_2_LM_LFV.run.xml" 1762869413 2397 fc775e1b82917fb951270de6ab16d1ce "pdflatex"
-  "devoir_2_LM_LFV.tex" 1762869314 16103 40763ff205c883745deb0b242c496d61 ""
+  "devoir_2_LM_LFV.aux" 1763314035 1114 34eec089a7109f5b3319e841506fff99 "pdflatex"
+  "devoir_2_LM_LFV.bbl" 1763308110 0 d41d8cd98f00b204e9800998ecf8427e "biber devoir_2_LM_LFV"
+  "devoir_2_LM_LFV.out" 1763314034 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "devoir_2_LM_LFV.run.xml" 1763314035 2397 fc775e1b82917fb951270de6ab16d1ce "pdflatex"
+  "devoir_2_LM_LFV.tex" 1763314033 16464 5f59adb1427eca44f4e7b859bbf6b4a0 ""
   "francais.sty" 1757353831 182 81e57db1ca7a007fef86856a57b5d249 ""
   "histogramme.pdf" 1762869314 11965 9989422081ed2ee37b1cf8444e160c79 ""
   "includepacks.sty" 1758819391 762 2b63c55e00d328021b6327cdc2a45ecb ""
